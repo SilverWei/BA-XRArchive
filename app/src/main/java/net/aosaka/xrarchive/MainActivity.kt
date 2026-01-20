@@ -35,8 +35,8 @@ import androidx.xr.compose.subspace.SpatialPanel
 import androidx.xr.compose.subspace.layout.SpatialRoundedCornerShape
 import androidx.xr.compose.subspace.layout.SubspaceModifier
 import androidx.xr.compose.subspace.layout.height
-import androidx.xr.compose.subspace.layout.movable
-import androidx.xr.compose.subspace.layout.resizable
+import androidx.xr.compose.subspace.MovePolicy
+import androidx.xr.compose.subspace.ResizePolicy
 import androidx.xr.compose.subspace.layout.width
 import net.aosaka.xrarchive.ui.theme.XRArchiveTheme
 
@@ -67,7 +67,11 @@ class MainActivity : ComponentActivity() {
 @SuppressLint("RestrictedApi")
 @Composable
 fun MySpatialContent(onRequestHomeSpaceMode: () -> Unit) {
-    SpatialPanel(SubspaceModifier.width(1280.dp).height(800.dp).resizable().movable()) {
+    SpatialPanel(
+        SubspaceModifier.width(1280.dp).height(800.dp),
+        dragPolicy = MovePolicy(),
+        resizePolicy = ResizePolicy(),
+    ) {
         Surface {
             MainContent(
                 modifier = Modifier
