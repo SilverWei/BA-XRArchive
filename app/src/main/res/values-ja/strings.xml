@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">XRArchive</string>
+    <string name="switch_to_full_space_mode">フルスペースモードに切り替え</string>
+    <string name="student_list_title">生徒リスト</string>
+    <string name="mouth_shapes">口パターン</string>
+    <string name="switch_to_home_space_mode">ホームスペースモードに切り替え</string>
+</resources>

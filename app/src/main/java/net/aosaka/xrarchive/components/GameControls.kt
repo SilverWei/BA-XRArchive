@@ -59,6 +59,7 @@ import androidx.compose.ui.unit.Density
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Path
+import androidx.compose.ui.res.stringResource
 import net.aosaka.xrarchive.R
 import net.aosaka.xrarchive.viewmodel.CharacterMouth
 import net.aosaka.xrarchive.viewmodel.ModelTransform
@@ -106,7 +107,7 @@ fun GameControls(
                         contentScale = ContentScale.Fit             // 或 Crop / Inside，依圖片比例決定
                     )
                     Text(
-                        text = "学生清单",
+                        text = stringResource(R.string.student_list_title),
                         modifier = Modifier
                             .padding(start = 8.dp)
                             .align(Alignment.CenterStart),
@@ -148,7 +149,7 @@ fun GameControls(
                                 contentScale = ContentScale.Fit             // 或 Crop / Inside，依圖片比例決定
                             )
                             Text(
-                                text = "嘴形",
+                                text = stringResource(R.string.mouth_shapes),
                                 modifier = Modifier
                                     .padding(start = 8.dp)
                                     .align(Alignment.CenterStart),

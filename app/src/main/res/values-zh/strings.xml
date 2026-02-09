@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">XRArchive</string>
+    <string name="switch_to_home_space_mode">切换到Home空间模式</string>
+    <string name="switch_to_full_space_mode">切换到沉浸空间模式</string>
+    <string name="student_list_title">学生清单</string>
+    <string name="mouth_shapes">嘴形</string>
+</resources>
