@@ -18,6 +18,7 @@ import androidx.xr.compose.subspace.layout.SubspaceModifier
 import androidx.xr.compose.subspace.layout.scale
 import androidx.xr.scenecore.AlphaMode
 import androidx.xr.scenecore.GltfModelEntity
+import androidx.xr.scenecore.KhronosPbrMaterial
 import androidx.xr.scenecore.KhronosUnlitMaterial
 import androidx.xr.scenecore.Texture
 import kotlin.io.path.Path
@@ -47,6 +48,7 @@ fun CharacterModel(
                 PlanarEmbeddedSubspace {
                     var scaleFromLayout by remember { mutableFloatStateOf(1f) }
                     var unlitMaterial by remember { mutableStateOf<KhronosUnlitMaterial?>(null) }
+//                    var pbrMaterial by remember { mutableStateOf<KhronosPbrMaterial?>(null) }
                     LaunchedEffect(xrSession, character.name) {
                         try {
                             val mouth = modelTransform.characterMouth
@@ -59,14 +61,17 @@ fun CharacterModel(
                                 path = Path(texturePath)
                             )
 
-//                        pbrMaterial = KhronosPbrMaterial.create(
-//                            session = xrSession,
-//                            alphaMode = AlphaMode.MASK
-//                        )
-//                        pbrMaterial?.setOcclusionTexture(
-//                            texture = baseTexture,
-//                            strength = 1.0f
-//                        )
+//                            pbrMaterial = KhronosPbrMaterial.create(
+//                                session = xrSession,
+//                                alphaMode = AlphaMode.MASK
+//                            )
+//                            pbrMaterial?.setOcclusionTexture(
+//                                texture = baseTexture,
+//                                strength = 1.0f
+//                            )
+//                            pbrMaterial?.setBaseColorTexture(
+//                                texture = baseTexture
+//                            )
 
                             unlitMaterial = KhronosUnlitMaterial.create(
                                 session = xrSession,
@@ -89,6 +94,12 @@ fun CharacterModel(
                                 AlphaMode.MASK
                             )
                         }
+//                        if (pbrMaterial == null) {
+//                            pbrMaterial = KhronosPbrMaterial.create(
+//                                session = xrSession,
+//                                AlphaMode.MASK
+//                            )
+//                        }
                         val mouth = modelTransform.characterMouth
 
                         // 動態生成檔案名稱：character_mouth_[x+1]_[y+1].png
@@ -104,6 +115,7 @@ fun CharacterModel(
                             )
 
                             unlitMaterial?.setBaseColorTexture(baseTexture)
+//                            pbrMaterial?.setBaseColorTexture(baseTexture)
 
                             Log.d("MouthTexture", "Loaded texture: $texturePath")
                         } catch (e: Exception) {
@@ -115,14 +127,14 @@ fun CharacterModel(
                             GltfModelEntity.create(xrSession, model)
                         },
                         update = { entity: GltfModelEntity ->
+                            try {
 //                        pbrMaterial?.let { newMaterial ->
 //                            entity.setMaterialOverride(
 //                                material = newMaterial,
-//                                "CH0334_Head_Body",
-//                                6
+//                                character.mouthNodeName,
+//                                character.mouthMaterialIndex
 //                            )
 //                        }
-                            try {
                                 unlitMaterial?.let { newMaterial ->
                                     entity.setMaterialOverride(
                                         material = newMaterial,
