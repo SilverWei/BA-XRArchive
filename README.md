@@ -7,7 +7,9 @@ An experimental Blue Archive fan app developed with Jetpack XR SDK and Android X
 
 The APK can be sideloaded directly onto a Samsung Galaxy XR device running Android XR, or installed in the Android XR emulator via Android Studio.
 
-Currently implemented features can be seen in the upcoming demo video.
+Currently implemented features can be seen in the demo video here:
+https://www.youtube.com/watch?v=Qp__2BwQeEk
+(Video title: Android XRでブルアカのキャラを空間に置いてみた)
 
 This demo exists purely as an experimental study to understand the current limits of 3D spatial app development with Jetpack XR SDK. No further updates are planned unless Jetpack XR SDK adds more 3D model-related APIs in the future.
 
